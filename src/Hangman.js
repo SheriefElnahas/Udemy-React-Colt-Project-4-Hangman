@@ -27,7 +27,7 @@ class Hangman extends Component {
   guessedWord() {
     return this.state.answer
       .split("")
-      .map(ltr => (this.state.guessed.has(ltr) ? ltr : "_"));
+      .map(letter => (this.state.guessed.has(letter) ? letter : "_"));
   }
 
   /** handleGuest: handle a guessed letter:
@@ -35,22 +35,18 @@ class Hangman extends Component {
     - if not in answer, increase number-wrong guesses
   */
   handleGuess(evt) {
-    let ltr = evt.target.value;
+    let letter = evt.target.value;
     this.setState(st => ({
-      guessed: st.guessed.add(ltr),
-      nWrong: st.nWrong + (st.answer.includes(ltr) ? 0 : 1)
+      guessed: st.guessed.add(letter),
+      nWrong: st.nWrong + (st.answer.includes(letter) ? 0 : 1)
     }));
   }
 
   /** generateButtons: return array of letter buttons to render */
   generateButtons() {
-    return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
-      <button
-        value={ltr}
-        onClick={this.handleGuess}
-        disabled={this.state.guessed.has(ltr)}
-      >
-        {ltr}
+    return "abcdefghijklmnopqrstuvwxyz".split("").map(letter => (
+      <button key={letter}  value={letter}  onClick={this.handleGuess} disabled={this.state.guessed.has(letter)}  >
+        {letter}
       </button>
     ));
   }
