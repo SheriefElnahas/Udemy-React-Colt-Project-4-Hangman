@@ -56,7 +56,7 @@ class Hangman extends Component {
     return (
       <div className='Hangman'>
         <h1>Hangman</h1>
-        <img src={this.props.images[this.state.nWrong]} />
+        <img src={this.props.images[this.state.nWrong]} alt={`${this.state.nWrong} wrong guesses`}  />
         <p> {this.state.nWrong === this.props.maxWrong ? "Game Over": `Wrong Attempts : ${this.state.nWrong}`} </p>
         <p className='Hangman-word'>
         {this.state.nWrong < this.props.maxWrong  ? this.guessedWord() : this.state.answer}
