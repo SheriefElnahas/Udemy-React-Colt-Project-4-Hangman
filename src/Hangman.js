@@ -80,7 +80,6 @@ class Hangman extends Component {
         </p>
         <p className="Hangman-btns">
          {this.showResults()}
-         {/* {this.state.nWrong < this.props.maxWrong  ? this.generateButtons()  : ""} */}
         </p>
           <div className="btn-container">
           <button className="btn-restart" onClick={this.restartGame}>
